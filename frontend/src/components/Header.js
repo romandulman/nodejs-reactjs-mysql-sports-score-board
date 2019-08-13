@@ -30,7 +30,7 @@ class Header extends Component {
             <Navbar bg="dark" variant="dark">
                 <Navbar.Brand >Navbar</Navbar.Brand>
                 <Nav className="mr-auto">
-                    <Nav.Link omponent={Link} to={'/first'}>Home</Nav.Link>
+                    <Nav.Link component={Link} to={'/first'}>Home</Nav.Link>
                     <Nav.Link><Link to="/guests" >Home</Link></Nav.Link>
                 </Nav>
             </Navbar>
