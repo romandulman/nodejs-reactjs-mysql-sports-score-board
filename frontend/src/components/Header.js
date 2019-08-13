@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./Styles.css";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
+import Button from 'react-bootstrap/Button'
 import Dropdown from "react-bootstrap/Dropdown"
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { connect } from "react-redux";
@@ -23,19 +24,14 @@ const mapDispachToProps = dispach => {
 
 
 class Header extends Component {
-    addGuestHandler = () => {
-        this.props.isLoggedIn ? this.props.ShowModal() : this.props.LoginBtn();
-    };
-
 
     render() {
         return (
             <Navbar bg="dark" variant="dark">
-                <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+                <Navbar.Brand >Navbar</Navbar.Brand>
                 <Nav className="mr-auto">
-                    <Nav.Link href="#home">Home</Nav.Link>
-                    <Nav.Link href="#features">Features</Nav.Link>
-                    <Nav.Link href="#pricing">Pricing</Nav.Link>
+                    <Nav.Link omponent={Link} to={'/first'}>Home</Nav.Link>
+                    <Nav.Link><Link to="/guests" >Home</Link></Nav.Link>
                 </Nav>
             </Navbar>
         );
