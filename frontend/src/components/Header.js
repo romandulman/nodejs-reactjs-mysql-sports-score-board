@@ -37,7 +37,6 @@ class Header extends Component {
                     <Nav.Link href="#features">Features</Nav.Link>
                     <Nav.Link href="#pricing">Pricing</Nav.Link>
                 </Nav>
-
             </Navbar>
         );
     }

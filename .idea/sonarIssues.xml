@@ -3,7 +3,32 @@
   <component name="issues">
     <option name="index">
       <map>
+        <entry key="/Dummy.txt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/backend/.gitignore">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/backend/app.js">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/backend/config/mysql.js">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/backend/controllers/apiCtl.js">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/backend/routes/api.js">
           <value>
             <set />
           </value>
@@ -29,6 +54,46 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/frontend/src/store/reducer.js">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/projects/roman-dulman-portfolio/app.js">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/projects/roman-dulman-portfolio/public/stylesheets/style.css">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/projects/roman-dulman-portfolio/routes/index.js">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/projects/roman-dulman-portfolio/views/index.ejs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/projects/roman-dulman-portfolio/views/partials/head.ejs">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/projects/roman-dulman/bin/www">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/projects/roman-dulman/routes/index.js">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="D:/projects/simple-nodejs-mysql-blog/node-app/routes/api.js">
           <value>
             <set />
           </value>

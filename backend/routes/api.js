@@ -1,20 +1,17 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const apiCtl = require('../controllers/apiCtl');
 
+router.get('/', apiCtl.getAll);
 
-router.get('/', (req,res)=> {
+router.get('/',apiCtl.getSingle);
 
-});
-router.get('/', (req,res)=> {
+router.post('/', apiCtl.addNew);
 
-});
-router.post('/', (req,res)=> {
+router.post('/', apiCtl.editSingle);
 
-});
-router.delete('/', (req,res)=> {
+router.delete('/', apiCtl.delSingle);
 
-});
-router.put('/', (req,res)=> {
+router.put('/',apiCtl.updateSingle);
 
-});
 module.exports = router;
