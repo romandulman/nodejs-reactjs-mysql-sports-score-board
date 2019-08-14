@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const apiCtl = require('../controllers/apiCtl');
 
+router.get('/', apiCtl.getAllfoootball);
+router.get('/', apiCtl.getAllbasketball);
 router.get('/', apiCtl.getAll);
 
 router.get('/',apiCtl.getSingle);

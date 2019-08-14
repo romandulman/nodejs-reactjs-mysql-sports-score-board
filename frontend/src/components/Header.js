@@ -1,9 +1,13 @@
 import React, { Component } from "react";
 import "./Styles.css";
-import Navbar from "react-bootstrap/Navbar";
-import Nav from "react-bootstrap/Nav";
-import Button from 'react-bootstrap/Button'
-import Dropdown from "react-bootstrap/Dropdown"
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
+import StarIcon from '@material-ui/icons/Star';
+
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { connect } from "react-redux";
 
@@ -27,13 +31,28 @@ class Header extends Component {
 
     render() {
         return (
-            <Navbar bg="dark" variant="dark">
-                <Navbar.Brand >Navbar</Navbar.Brand>
-                <Nav className="mr-auto">
-                    <Nav.Link component={Link} to={'/first'}>Home</Nav.Link>
-                    <Nav.Link><Link to="/guests" >Home</Link></Nav.Link>
-                </Nav>
-            </Navbar>
+            <div>
+
+                <AppBar position="static" color="default">
+                    <Toolbar>
+
+                            <StarIcon/>
+
+                       {/* <Nav.Link component={Link} to={'/first'}>Home</Nav.Link>*/}
+                        <Button color="primary" component={Link} to={'/football'}>
+                            Football
+                        </Button>
+                        <Button color="primary" component={Link} to={'/football'}>
+                            Basketball
+                        </Button>
+                      <Link to="/guests" >Home</Link>
+                    </Toolbar>
+                </AppBar>
+
+
+
+
+            </div>
         );
     }
 }

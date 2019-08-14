@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 import Header from "./components/Header";
+import Football from "./components/Football";
+import Basketball from "./components/Basketball";
+
 import {
     BrowserRouter as Router,
     Route,
@@ -14,13 +17,9 @@ class App extends Component {
         <div className="App">
             <Router>
                 <Header/>
-                <Route path="/">
-                    <Redirect to="/" />
-                </Route>
-                {/*<Route path="/" component={  } />
-                <Route path="/" component={  } />
-                <Route path="/" component={  } />
-                <Route path="/" component={  } />*/}
+
+              <Route path="/" component={ Basketball } />
+                <Route path="/" component={ Football } />
             </Router>
 
         </div>
