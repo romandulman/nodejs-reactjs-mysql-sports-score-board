@@ -1,54 +1,60 @@
 import React, { Component } from "react";
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-import Navbar from "react-bootstrap/Navbar";
-import Nav from "react-bootstrap/Nav";
-import {Link} from "react-router-dom";
-import {connect} from "react-redux";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+import Item from './Item'
 
-
-const mapStateToProps = state => {
-    return {
-
-    };
-};
-
-const mapDispachToProps = dispach => {
-    return {
-        LoginConfirm: profile =>
-            dispach({ type: "IsLoggedIn", UserProfile: profile }),
-        LoginBtn: () => dispach({ type: "LOGIN" }),
-        ShowModal: () => dispach({ type: "SHOWMODAL" })
-    };
-};
 
 
 class Football extends Component {
 
-    render() {
-        return (
-            <Card >
-                <CardContent>
-                    <Typography  color="textSecondary" gutterBottom>
-                        Word of the Day
-                    </Typography>
-                    <Typography variant="h5" component="h2">
-                        Word of the Day
+    state={
+        data:[]
+    };
 
-                    </Typography>
-                </CardContent>
-                <CardActions>
-                    <Button size="small">Learn More</Button>
-                </CardActions>
-            </Card>
+    componentDidMount(){
+        const handleErrors = response => {
+            if (!response.ok) {
+                throw Error(response.statusText);
+            }
+            return response;
+        };
+        fetch("/api/football")
+            .then(handleErrors)
+            .then(res => res.json())
+            .then(result => {
+                let data = result;
+                this.setState({data})
+                //alert(result)
+            })
+            .catch(err => {
+                console.log(err);
+            });
+
+    }
+
+
+    render() {
+        const ViewGames = this.state.data.map(guest => (
+            <Col md={4} >
+            <Item
+            teama ={guest.teamA}
+            teamb ={guest.teamB}
+            scorea = {guest.ScoreA}
+            scoreb = {guest.ScoreB}
+            datetime ={guest.Time}
+            category={guest.Category}
+
+            />
+
+            </Col>
+        ));
+
+        return (
+            <div>
+                <Row>{ViewGames}</Row>
+                </div>
         );
     }
 }
 
-export default connect(
-    mapStateToProps,
-    mapDispachToProps
-)(Football);
+export default Football;

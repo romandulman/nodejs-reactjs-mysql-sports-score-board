@@ -17,9 +17,11 @@ class App extends Component {
         <div className="App">
             <Router>
                 <Header/>
-
-              <Route path="/" component={ Basketball } />
-                <Route path="/" component={ Football } />
+                <Route path="/">
+                    <Redirect to="/basketball" />
+                </Route>
+                <Route path="/basketball" component={Basketball} />
+                <Route path="/football" component={Football} />
             </Router>
 
         </div>
