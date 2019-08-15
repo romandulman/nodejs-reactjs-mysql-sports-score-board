@@ -13,26 +13,26 @@ class AddComment extends Component {
         open: false,
         datetime: '2019-04-29 21:11:54',
         commenter: '',
-        body:''
+        body:'',
+        id:''
     };
 
 
 
-
-
-
-    handleView = () => {
+    handleView = (id) => {
         (this.state.open) ? this.setState({open: false}) : this.setState({open: true});
     };
 
     handlePublish = () => {
+        const id = this.props.id;
         this.handleView();
         let comment = {
             commenter: this.state.commenter,
             body:this.state.body,
             datetime:this.state.datetime
         };
-        fetch("/api/addcomment", {
+
+        fetch("/api/addcomment/"+id, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ comment })

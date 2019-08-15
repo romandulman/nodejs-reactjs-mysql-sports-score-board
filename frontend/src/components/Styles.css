@@ -4,3 +4,11 @@
   text-align: center;
   margin: 15px;
 }
+
+.comments{
+  width: 100%;
+  max-width: 360px;
+}
+.inline{
+  display: inline;
+}

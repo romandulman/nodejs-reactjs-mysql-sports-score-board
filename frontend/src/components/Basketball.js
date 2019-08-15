@@ -24,7 +24,6 @@ class Basketball extends Component {
             .then(result => {
                 let data = result;
                 this.setState({data})
-                //alert(result)
             })
             .catch(err => {
                 console.log(err);
@@ -34,15 +33,16 @@ class Basketball extends Component {
 
 
     render() {
-        const ViewGames = this.state.data.map(guest => (
+        const ViewGames = this.state.data.map(data => (
             <Col md={4} >
                 <Item
-                    teama ={guest.teamA}
-                    teamb ={guest.teamB}
-                    scorea = {guest.ScoreA}
-                    scoreb = {guest.ScoreB}
-                    datetime ={guest.Time}
-                    category={guest.Category}
+                    id ={data.id}
+                    teama ={data.teamA}
+                    teamb ={data.teamB}
+                    scorea = {data.ScoreA}
+                    scoreb = {data.ScoreB}
+                    datetime ={data.Time}
+                    category={data.Category}
 
                 />
 
