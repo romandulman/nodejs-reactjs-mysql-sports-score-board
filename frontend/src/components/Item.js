@@ -30,8 +30,7 @@ class Item extends Component {
         .then(result => {
           let comments = result;
           this.setState({ comments });
-            this.setState({ viewComments: true });
-
+          this.setState({ viewComments: true });
         })
         .catch(err => {
           console.log(err);
@@ -46,22 +45,23 @@ class Item extends Component {
       <Card className="card">
         <AddComment ref="addNew" id={this.props.id} />
         <CardContent>
+          <h5>{this.props.category}</h5>
+
           <Typography variant="p" component="p">
             <h5>
-              {this.props.teama} vs {this.props.teamb}
+              {this.props.teama} VS {this.props.teamb}
             </h5>
             <h5>
-              Score: {this.props.scorea}:{this.props.scoreb}
+              {this.props.scorea}:{this.props.scoreb}
             </h5>
-            <h5>Category:{this.props.category}</h5>
-            <h5>{this.props.datetime}</h5>
+            <h6>{this.props.datetime}</h6>
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size="small" onClick={this.viewComments}>
-            View comments
+          <Button size="small" color="primary" onClick={this.viewComments}>
+            {this.state.viewComments ? "Close" : "View comments"}
           </Button>
-          <Button size="small" onClick={this.showAddComment}>
+          <Button size="small" color="secondary" onClick={this.showAddComment}>
             Add Comment
           </Button>
         </CardActions>

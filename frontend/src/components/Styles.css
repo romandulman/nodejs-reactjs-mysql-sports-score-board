@@ -1,14 +1,24 @@
-.card{
+.card {
   max-width: 385px;
-  max-height: 678px;
+  max-height: fit-content;
   text-align: center;
-  margin: 15px;
+  margin: auto;
 }
 
-.comments{
+.comments {
   width: 100%;
   max-width: 360px;
 }
-.inline{
+.inline {
   display: inline;
+}
+.appbartitle {
+  flex-grow: 1;
+}
+.starico {
+  margin-top: -5px;
+}
+
+.marginbar {
+  margin-bottom: 50px;
 }
