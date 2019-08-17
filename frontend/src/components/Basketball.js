@@ -4,12 +4,20 @@ import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 import Item from "./Item";
 import "./Styles.css";
+import { CSVLink, CSVDownload } from "react-csv";
+import Fab from '@material-ui/core/Fab';
+import NavigationIcon from './img/file_download_black_27x27.png';
 
 class Basketball extends Component {
   state = {
     data: []
   };
-
+  csvData = [
+    ["firstname", "lastname", "email"],
+    ["Ahmed", "Tomi", "ah@smthing.co.com"],
+    ["Raed", "Labes", "rl@smthing.co.com"],
+    ["Yezzi", "Min l3b", "ymin@cocococo.com"]
+  ];
   componentDidMount() {
     const handleErrors = response => {
       if (!response.ok) {
@@ -31,7 +39,7 @@ class Basketball extends Component {
 
   render() {
     const ViewGames = this.state.data.map(data => (
-      <Col md={4}>
+      <Col lg={6}>
         <Item
           id={data.id}
           teama={data.teamA}
@@ -46,6 +54,14 @@ class Basketball extends Component {
     return (
       <Container>
         <Row>{ViewGames}</Row>
+        <div className="exportSec">
+          <CSVLink data={this.csvData}>
+            <Fab variant="extended" aria-label="delete">
+              <img src={NavigationIcon} />
+              Download CSV
+            </Fab>
+          </CSVLink>
+        </div>
       </Container>
     );
   }

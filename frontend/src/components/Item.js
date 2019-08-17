@@ -7,6 +7,10 @@ import Typography from "@material-ui/core/Typography";
 import "./Styles.css";
 import AddComment from "./AddComment";
 import Comments from "./Comments";
+import FootblImg from "./img/football.png"
+import BasktblImg from "./img/basketball.png"
+import Col from "react-bootstrap/Col";
+
 class Item extends Component {
   state = {
     comments: [],
@@ -42,17 +46,22 @@ class Item extends Component {
 
   render() {
     return (
+        <div>
       <Card className="card">
         <AddComment ref="addNew" id={this.props.id} />
         <CardContent>
-          <h5>{this.props.category}</h5>
+          <div>
+          {/*<h5>{this.props.category}</h5>*/}
+            {(this.props.category === "Football")? <img height="30" src={FootblImg}/>: <img height="30" src={BasktblImg}/>}
+          </div>
+          <br/>
 
           <Typography variant="p" component="p">
             <h5>
-              {this.props.teama} VS {this.props.teamb}
+              {this.props.teama} <span className="vs">VS</span> {this.props.teamb}
             </h5>
             <h5>
-              {this.props.scorea}:{this.props.scoreb}
+              {this.props.scorea} : {this.props.scoreb}
             </h5>
             <h6>{this.props.datetime}</h6>
           </Typography>
@@ -67,6 +76,9 @@ class Item extends Component {
         </CardActions>
         {this.state.viewComments && <Comments dataIn={this.state.comments} />}
       </Card>
+      <br/>
+        </div>
+
     );
   }
 }
