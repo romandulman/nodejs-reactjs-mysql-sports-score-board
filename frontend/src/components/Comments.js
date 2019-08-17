@@ -14,7 +14,7 @@ class Comments extends Component {
   render() {
     const datain = this.props.dataIn;
     let ViewComments;
-    if (datain.length > 1) {
+    if (datain.length > 0) {
       ViewComments = datain.map(cdata => (
         <List className="comments">
           <ListItem alignItems="flex-start">

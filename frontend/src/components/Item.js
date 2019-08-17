@@ -35,6 +35,7 @@ class Item extends Component {
           let comments = result;
           this.setState({ comments });
           this.setState({ viewComments: true });
+          console.log(comments)
         })
         .catch(err => {
           console.log(err);

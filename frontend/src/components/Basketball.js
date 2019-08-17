@@ -12,12 +12,7 @@ class Basketball extends Component {
   state = {
     data: []
   };
-  csvData = [
-    ["firstname", "lastname", "email"],
-    ["Ahmed", "Tomi", "ah@smthing.co.com"],
-    ["Raed", "Labes", "rl@smthing.co.com"],
-    ["Yezzi", "Min l3b", "ymin@cocococo.com"]
-  ];
+
   componentDidMount() {
     const handleErrors = response => {
       if (!response.ok) {
