@@ -55,7 +55,7 @@ class Basketball extends Component {
       <Container>
         <Row>{ViewGames}</Row>
         <div className="exportSec">
-          <CSVLink data={this.csvData}>
+          <CSVLink data={this.state.data}>
             <Fab variant="extended" aria-label="delete">
               <img src={NavigationIcon} />
               Download CSV
