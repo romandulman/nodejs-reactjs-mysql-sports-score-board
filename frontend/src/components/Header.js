@@ -22,6 +22,9 @@ class Header extends Component {
             <Button color="primary" component={Link} to={"/basketball"}>
               Basketball
             </Button>
+            <Button color="primary" component={Link} to={"/basketball"}>
+              About App
+            </Button>
           </Toolbar>
         </AppBar>
       </div>
