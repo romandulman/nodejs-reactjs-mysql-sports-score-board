@@ -1,8 +1,12 @@
 .card {
-  width: 360px;
+  width: 390px;
   max-height: fit-content;
   text-align: center;
   margin: auto;
+  -webkit-box-shadow: 11px 14px 23px -10px rgba(0,0,0,0.75);
+  -moz-box-shadow: 11px 14px 23px -10px rgba(0,0,0,0.75);
+  box-shadow: 11px 14px 23px -10px rgba(0,0,0,0.75);
+
 
 }
 

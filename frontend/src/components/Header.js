@@ -5,12 +5,18 @@ import Button from "@material-ui/core/Button";
 import StarIcon from "@material-ui/icons/Star";
 import Typography from "@material-ui/core/Typography";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import AboutDialog from "./AboutDialog";
 import "./Styles.css";
 
 class Header extends Component {
+  state = {
+    dialogopen: false
+  };
+
   render() {
     return (
       <div className="marginbar">
+        <AboutDialog ref={ref => (this.dialog = ref)} />
         <AppBar position="static" color="default">
           <Toolbar>
             <Typography variant="h6" className="appbartitle">
@@ -22,7 +28,11 @@ class Header extends Component {
             <Button color="primary" component={Link} to={"/basketball"}>
               Basketball
             </Button>
-            <Button color="primary" component={Link} to={"/basketball"}>
+            <Button
+              color="secondary"
+              onClick={() => this.dialog.handleDialogView()}
+              to={"/basketball"}
+            >
               About App
             </Button>
           </Toolbar>

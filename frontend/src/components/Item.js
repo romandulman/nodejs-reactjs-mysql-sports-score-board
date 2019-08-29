@@ -10,6 +10,7 @@ import Comments from "./Comments";
 import FootblImg from "./img/football.png"
 import BasktblImg from "./img/basketball.png"
 import Col from "react-bootstrap/Col";
+import Box from '@material-ui/core/Box';
 
 class Item extends Component {
   state = {
@@ -46,9 +47,11 @@ class Item extends Component {
   };
 
   render() {
+
     return (
-        <div>
-      <Card className="card">
+      <div>
+      <Card
+        className="card" >
         <AddComment ref="addNew" id={this.props.id} />
         <CardContent>
           <div>

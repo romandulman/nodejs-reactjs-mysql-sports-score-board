@@ -3,9 +3,10 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import Divider from "@material-ui/core/Divider";
 import ListItemText from "@material-ui/core/ListItemText";
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
+import Avatar from '@material-ui/core/Avatar';
 import Typography from "@material-ui/core/Typography";
 import "./Styles.css";
-import moment from "moment";
 
 class Comments extends Component {
   state = {
@@ -18,9 +19,9 @@ class Comments extends Component {
       ViewComments = datain.map(cdata => (
         <List className="comments">
           <ListItem alignItems="flex-start">
-            {/*        <ListItemAvatar>
+                   <ListItemAvatar>
                     <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
-                </ListItemAvatar>*/}
+                </ListItemAvatar>
             <ListItemText
               secondary={
                 <React.Fragment>
@@ -35,10 +36,7 @@ class Comments extends Component {
                   <br />
                   {cdata.comment_body}
                   <br />
-                  {/*
-               { moment((cdata.datetime).format('YYYY/MM/DD HH:mm:ss')).format("YYYY-MM-DD HH:mm:ss")}
-*/}
-                  {cdata.datetime}
+                  {cdata.datetime.replace(/T/gi, ' - ').replace(/Z/gi, '  ')}
                 </React.Fragment>
               }
             />

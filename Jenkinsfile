@@ -78,7 +78,7 @@ pipeline {
                       sh 'ssh -v ubuntu@3.122.220.39'
                       sh 'ssh ubuntu@3.122.220.39 sudo docker pull repos.opotel.com/gamescore' + ":$BUILD_NUMBER"
                       sh 'ssh ubuntu@3.122.220.39 sudo docker rm --force gamescore'
-                      sh 'ssh ubuntu@3.122.220.39 sudo docker run --detach  --name gamescore  --env "VIRTUAL_HOST=gamescore.romandulman.com"  repos.opotel.com/gamescore'+ ":$BUILD_NUMBER"
+                      sh 'ssh ubuntu@3.122.220.39 sudo docker run --detach  --name gamescore  --restart=always --env "VIRTUAL_HOST=gamescore.romandulman.com"  repos.opotel.com/gamescore'+ ":$BUILD_NUMBER"
 
                   }
               }

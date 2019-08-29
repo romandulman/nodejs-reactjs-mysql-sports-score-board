@@ -6,8 +6,7 @@ import Basketball from "./components/Basketball";
 import {
     BrowserRouter as Router,
     Route,
-    Redirect,
-    Link
+    Redirect
 } from "react-router-dom";
 
 class App extends Component {
