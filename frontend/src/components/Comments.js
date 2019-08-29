@@ -6,6 +6,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from "@material-ui/core/Typography";
+import PersonIcon from '@material-ui/icons/Person';
 import "./Styles.css";
 
 class Comments extends Component {
@@ -20,7 +21,7 @@ class Comments extends Component {
         <List className="comments">
           <ListItem alignItems="flex-start">
                    <ListItemAvatar>
-                    <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+                    <Avatar alt="Remy Sharp" src={PersonIcon} />
                 </ListItemAvatar>
             <ListItemText
               secondary={
