@@ -88,5 +88,5 @@ pipeline {
 }
 
 /* sh 'ssh ubuntu@3.122.220.39 sudo docker rm --force roman-dulmans-portfolio' remove prev image
-sh 'ssh ubuntu@3.122.220.39 sudo docker run --detach  --name roman-dulmans-portfolio  --env "VIRTUAL_HOST=romandulman.com"  --env "LETSENCRYPT_HOST=romandulman.com"    romandulman/roman-dulmans-portfolio'+ ":$BUILD_NUMBER"
+sh 'ssh ubuntu@3.122.220.39 sudo docker run --detach  --name roman-dulmans-portfolio  --env "VIRTUAL_HOST=romandulman.com"  --env "LETSENCRYPT_HOST=gamescore.romandulman.com"    romandulman/roman-dulmans-portfolio'+ ":$BUILD_NUMBER"
 */
