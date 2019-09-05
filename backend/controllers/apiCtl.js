@@ -1,50 +1,65 @@
 const sqlServer = require("../config/mysql");
 
 class ctl {
-  getAllfoootball = (req, res) => {
-    // sqlServer.query('SELECT * FROM allgames WHERE Category="Football"', (err, rows, fields) => {
-    sqlServer.query(
-      `SELECT * FROM allgames WHERE Category="Football"`,
-      (err, rows, fields) => {
-        if (err) throw err;
-        res.send(rows);
-      }
-    );
+  getAllBySport = async (req, res) => {
+    const type = req.params.type === "football" ? "Football" : "Basketball";
+    const all = new Promise((resolve, reject) => {
+      sqlServer.query(
+        `SELECT * FROM allgames WHERE Category="${type}"`,
+        (err, rows) => {
+          err ? reject(err) : resolve(rows);
+        }
+      );
+    });
+    try {
+      const data = await all;
+      res.send(data);
+    } catch (e) {
+      console.log(e);
+    }
   };
 
-  getAllbasketball = (req, res) => {
-    sqlServer.query(
-      `SELECT * FROM allgames WHERE Category="Basketball"`,
-      (err, rows, fields) => {
-        if (err) throw err;
-        res.send(rows);
-      }
-    );
-  };
-
-  getComment = (req, res) => {
+  getComment = async (req, res) => {
     const id = req.params.id;
-    sqlServer.query(
-      `SELECT * FROM comments WHERE game_id=${id}`,
-      (err, rows, fields) => {
-        if (err) throw err;
-        res.send(rows);
-        console.log(rows);
-      }
-    );
+    const all = new Promise((resolve, reject) => {
+      sqlServer.query(
+        `SELECT * FROM comments WHERE game_id=${id}`,
+        (err, rows, fields) => {
+          err ? reject(err) : resolve(rows);
+        }
+      );
+    });
+    try {
+      const data = await all;
+      res.send(data);
+    } catch (e) {
+      console.log(e);
+    }
   };
-  addNewComment = (req, res) => {
-    const body = req.body.comment.body;
-    const commenter = req.body.comment.commenter;
-    const gameId = req.params.id;
-    const datetime = req.body.comment.datetime;
-    sqlServer.query(
-      `INSERT INTO comments (datetime,game_id,commenter,comment_body) VALUES ("${datetime}", "${gameId}", "${commenter}", "${body}")`,
-      (err, rows, fields) => {
-        if (err) throw err;
+
+
+  addNewComment =  async (req, res) => {
+      const body = req.body.comment.body;
+      const commenter = req.body.comment.commenter;
+      const gameId = req.params.id;
+      const datetime = req.body.comment.datetime;
+      const comment = new Promise((resolve, reject) => {
+          sqlServer.query(
+              `INSERT INTO comments (datetime,game_id,commenter,comment_body) VALUES ("${datetime}", "${gameId}", "${commenter}", "${body}")`,
+              (err) => {
+                  err ? reject(err) : resolve();
+              }
+          );
+      });
+      try {
+           await comment;
+          res.status(200);
+      } catch (e) {
+         console.log(e);
       }
-    );
-  };
+
+
+  }
 }
 
 module.exports = new ctl();

@@ -20,7 +20,7 @@ class Basketball extends Component {
       }
       return response;
     };
-    fetch("/api/Basketball")
+    fetch("/api/sport/Basketball")
       .then(handleErrors)
       .then(res => res.json())
       .then(result => {

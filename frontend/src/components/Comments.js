@@ -10,9 +10,7 @@ import PersonIcon from '@material-ui/icons/Person';
 import "./Styles.css";
 
 class Comments extends Component {
-  state = {
-    // data: this.props.data
-  };
+
   render() {
     const datain = this.props.dataIn;
     let ViewComments;

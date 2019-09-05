@@ -5,8 +5,6 @@ import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from "@material-ui/core/DialogTitle";
-import moment from "moment";
-
 class AddComment extends Component {
   state = {
     open: false,
@@ -23,6 +21,8 @@ class AddComment extends Component {
   };
 
   handlePublish = () => {
+    this.props.parentMethod()
+
     let today = new Date();
     let date =
       today.getFullYear() +
@@ -49,6 +49,7 @@ class AddComment extends Component {
     })
       .then(response => response.json())
       .then(res => {
+
         //// add res
       });
   };
