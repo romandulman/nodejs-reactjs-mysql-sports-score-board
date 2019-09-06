@@ -24,7 +24,7 @@ class ctl {
     const all = new Promise((resolve, reject) => {
       sqlServer.query(
         `SELECT * FROM comments WHERE game_id=${id}`,
-        (err, rows, fields) => {
+        (err, rows) => {
           err ? reject(err) : resolve(rows);
         }
       );
