@@ -1,7 +1,6 @@
 const sqlServer = require("../config/mysql");
 
-class ctl {
-  getAllBySport = async (req, res) => {
+exports.getAllBySport = async (req, res) => {
     const type = req.params.type === "football" ? "Football" : "Basketball";
     const all = new Promise((resolve, reject) => {
       sqlServer.query(
@@ -19,7 +18,7 @@ class ctl {
     }
   };
 
-  getComment = async (req, res) => {
+exports.getComment = async (req, res) => {
     const id = req.params.id;
     const all = new Promise((resolve, reject) => {
       sqlServer.query(
@@ -38,7 +37,7 @@ class ctl {
   };
 
 
-  addNewComment =  async (req, res) => {
+exports.addNewComment =  async (req, res) => {
       const body = req.body.comment.body;
       const commenter = req.body.comment.commenter;
       const gameId = req.params.id;
@@ -57,9 +56,6 @@ class ctl {
       } catch (e) {
          console.log(e);
       }
+  };
 
 
-  }
-}
-
-module.exports = new ctl();
