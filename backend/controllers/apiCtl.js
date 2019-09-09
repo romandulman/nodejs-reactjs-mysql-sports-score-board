@@ -46,13 +46,13 @@ exports.addNewComment =  async (req, res) => {
           sqlServer.query(
               `INSERT INTO comments (datetime,game_id,commenter,comment_body) VALUES ("${datetime}", "${gameId}", "${commenter}", "${body}")`,
               (err) => {
-                  err ? reject(err) : resolve();
+                  err ? reject(err) : resolve(true);
               }
           );
       });
       try {
-           await comment;
-          res.status(200);
+          const data = await comment;
+          res.send(data);
       } catch (e) {
          console.log(e);
       }

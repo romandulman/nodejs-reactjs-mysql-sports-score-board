@@ -7,7 +7,7 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from "@material-ui/core/Typography";
 import PersonIcon from '@material-ui/icons/Person';
-import "./Styles.css";
+import "../assets/stylesheets/Styles.css";
 
 class Comments extends Component {
 
@@ -32,7 +32,7 @@ class Comments extends Component {
                   >
                     {cdata.commenter}
                   </Typography>
-                  <br />
+                  <br/>
                   {cdata.comment_body}
                   <br />
                   {cdata.datetime.replace(/T/gi, ' - ').replace(/Z/gi, '  ')}
@@ -46,11 +46,9 @@ class Comments extends Component {
     } else {
       ViewComments = "No Comments";
     }
-
     return (
       <div>
         <Divider variant="fullWidth" />
-
         {ViewComments}
       </div>
     );

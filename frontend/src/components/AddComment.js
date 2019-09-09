@@ -5,6 +5,8 @@ import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from "@material-ui/core/DialogTitle";
+import {addComment} from '../api';
+
 class AddComment extends Component {
   state = {
     open: false,
@@ -21,37 +23,23 @@ class AddComment extends Component {
   };
 
   handlePublish = () => {
-    this.props.parentMethod()
+    const today = new Date();
+    const date = today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate();
+    const time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    const dateTime = date + " " + time;
 
-    let today = new Date();
-    let date =
-      today.getFullYear() +
-      "-" +
-      (today.getMonth() + 1) +
-      "-" +
-      today.getDate();
-    let time =
-      today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-    let dateTime = date + " " + time;
-
-    const id = this.props.id;
-    this.handleView();
-    let comment = {
+    const comment = {
       commenter: this.state.commenter,
       body: this.state.body,
       datetime: dateTime
     };
 
-    fetch("/api/addcomment/" + id, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ comment })
-    })
-      .then(response => response.json())
-      .then(res => {
-
-        //// add res
-      });
+    addComment(comment,this.props.id)
+    .then( response =>{
+    if (response) {
+      this.handleView();
+      this.props.refCommnets();
+    }})
   };
 
   render() {

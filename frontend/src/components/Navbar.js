@@ -4,11 +4,11 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
 import StarIcon from "@material-ui/icons/Star";
 import Typography from "@material-ui/core/Typography";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import AboutDialog from "./AboutDialog";
-import "./Styles.css";
+import "../assets/stylesheets/Styles.css";
 
-class Header extends Component {
+class Navbar extends Component {
   state = {
     dialogopen: false
   };
@@ -42,4 +42,4 @@ class Header extends Component {
   }
 }
 
-export default Header;
+export default Navbar;

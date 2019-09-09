@@ -4,13 +4,13 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import "./Styles.css";
+import {getComments} from '../api'
+import "../assets/stylesheets/Styles.css";
 import AddComment from "./AddComment";
 import Comments from "./Comments";
-import FootblImg from "./img/football.png";
-import BasktblImg from "./img/basketball.png";
-import Col from "react-bootstrap/Col";
-import Box from "@material-ui/core/Box";
+import FootblImg from "../assets/images/football.png";
+import BasktblImg from "../assets/images/basketball.png";
+
 
 class Item extends Component {
   state = {
@@ -30,32 +30,18 @@ class Item extends Component {
   };
 
   fetchComments = () => {
-    const handleErrors = response => {
-      if (!response.ok) {
-        throw Error(response.statusText);
-      }
-      return response;
-    };
-
-    fetch("/api/comments/" + this.props.id)
-      .then(handleErrors)
-      .then(res => res.json())
-      .then(result => {
-        let comments = result;
-        this.setState({ comments });
-        this.setState({ viewComments: true });
-        console.log(comments);
-      })
-      .catch(err => {
-        console.log(err);
-      });
+     getComments(this.props.id)
+         .then( comments =>{
+           this.setState({ comments });
+           this.setState({ viewComments: true });
+         })
   };
   render() {
     return (
       <div>
         <Card className="card">
           <AddComment
-            parentMethod={this.fetchComments}
+            refCommnets={this.fetchComments}
             ref="addNew"
             id={this.props.id}
           />

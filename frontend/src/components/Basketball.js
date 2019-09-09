@@ -2,11 +2,12 @@ import React, { Component } from "react";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
-import Item from "./Item";
-import "./Styles.css";
-import { CSVLink, CSVDownload } from "react-csv";
+import { CSVLink} from "react-csv";
 import Fab from '@material-ui/core/Fab';
-import NavigationIcon from './img/file_download_black_27x27.png';
+import Item from "./Item";
+import "../assets/stylesheets/Styles.css";
+import NavigationIcon from '../assets/images/file_download_black_27x27.png';
+import {basketballScore} from "../api";
 
 class Basketball extends Component {
   state = {
@@ -14,23 +15,13 @@ class Basketball extends Component {
   };
 
   componentDidMount() {
-    const handleErrors = response => {
-      if (!response.ok) {
-        throw Error(response.statusText);
-      }
-      return response;
-    };
-    fetch("/api/sport/Basketball")
-      .then(handleErrors)
-      .then(res => res.json())
-      .then(result => {
-        let data = result;
-        this.setState({ data });
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    basketballScore()
+        .then(data =>{
+          console.log(data);
+          this.setState({ data });
+        })
   }
+
 
   render() {
     const ViewGames = this.state.data.map(data => (

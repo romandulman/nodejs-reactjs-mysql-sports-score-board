@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import Header from "./components/Header";
-import Football from "./components/Football";
-import Basketball from "./components/Basketball";
+import Navbar from "./Navbar";
+import Football from "./Football";
+import Basketball from "./Basketball";
 
 import {
     BrowserRouter as Router,
@@ -15,7 +15,7 @@ class App extends Component {
     return (
         <div className="App">
             <Router>
-                <Header/>
+                <Navbar/>
                 <Route path="/">
                     <Redirect to="/basketball" />
                 </Route>
