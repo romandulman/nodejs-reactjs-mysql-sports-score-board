@@ -2,15 +2,19 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
-const sqlServer = require("./config/mysql");
 var cors = require("cors");
-var apiRouter = require("./routes/api");
-
+var apiRouter = require("./routes/api.routes");
+const db = require('./models').sequelize;
 var app = express();
 
 app.use(cors());
-sqlServer.connect();
-
+db.authenticate()
+    .then(() => {
+      console.log('Connection has been established successfully.');
+    })
+    .catch(err => {
+      console.error('Unable to connect to the database:', err);
+    });
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

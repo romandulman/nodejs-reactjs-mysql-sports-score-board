@@ -1,22 +1,15 @@
-const sqlServer = require("../config/mysql");
+'use strict';
+const model = require('../models');
+
 
 exports.getAllBySport = async (req, res) => {
-    const type = req.params.type === "football" ? "Football" : "Basketball";
-    const all = new Promise((resolve, reject) => {
-      sqlServer.query(
-        `SELECT * FROM allgames WHERE Category="${type}"`,
-        (err, rows) => {
-          err ? reject(err) : resolve(rows);
-        }
-      );
-    });
-    try {
-      const data = await all;
-      res.send(data);
-    } catch (e) {
-      console.log(e);
-    }
-  };
+const type = req.params.type === "football" ? "Football" : "Basketball";
+const data = await  model.Allgames.findAll({where: {Category: type}});
+res.send(data);
+};
+
+// Changing  to Sequelize
+
 
 exports.getComment = async (req, res) => {
     const id = req.params.id;
