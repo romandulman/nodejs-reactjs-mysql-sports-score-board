@@ -1,12 +1,12 @@
-var express = require("express");
-var path = require("path");
-var cookieParser = require("cookie-parser");
-var logger = require("morgan");
-var cors = require("cors");
-var apiRouter = require("./routes/api.routes");
+const express = require("express");
+const path = require("path");
+const cookieParser = require("cookie-parser");
+const logger = require("morgan");
+const cors = require("cors");
+const apiRouter = require("./routes/api.routes");
 const db = require('./models').sequelize;
 const helmet = require('helmet');
-var app = express();
+const app = express();
 
 app.use(cors());
 
@@ -30,7 +30,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use("/api", apiRouter);
-app.get("/*", function(req, res) {
+app.get("/*", (req, res) =>{
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
