@@ -1,6 +1,7 @@
 'use strict';
 const model = require('../models');
 
+// Changing  to Sequelize
 
 exports.getAllBySport = async (req, res) => {
 const type = req.params.type === "football" ? "Football" : "Basketball";
