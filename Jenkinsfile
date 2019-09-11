@@ -1,8 +1,8 @@
 pipeline {
    environment {
-             registry = 'repos.opotel.com/gamescore'
-             registryCredential = 'localdockerreg'
-             registyAddr = 'repos.opotel.com'
+             registry = '***'
+             registryCredential = '***'
+             registyAddr = '***'
              dockerImage = ''
              scannerHome = tool 'SonarQubeScanner'
    }
@@ -64,7 +64,7 @@ pipeline {
                  }
                 }
                   steps {
-                     sh 'docker pull 192.168.2.11:8082/guestbook' + ":$BUILD_NUMBER"
+                     sh 'docker pull ***/guestbook' + ":$BUILD_NUMBER"
                   }
 
     }*/
@@ -74,11 +74,11 @@ pipeline {
              steps{
                   sshagent(credentials : ['AWS-eu-central-key']) {
 
-                      sh 'ssh -o StrictHostKeyChecking=no ubuntu@3.122.220.39 uptime'
-                      sh 'ssh -v ubuntu@3.122.220.39'
-                      sh 'ssh ubuntu@3.122.220.39 sudo docker pull repos.opotel.com/gamescore' + ":$BUILD_NUMBER"
-                      sh 'ssh ubuntu@3.122.220.39 sudo docker rm --force gamescore'
-                      sh 'ssh ubuntu@3.122.220.39 sudo docker run --detach  --name gamescore  --restart=always --env "VIRTUAL_PORT=8080" --env "VIRTUAL_HOST=gamescore.romandulman.com" --env  "LETSENCRYPT_HOST=gamescore.romandulman.com"  repos.opotel.com/gamescore'+ ":$BUILD_NUMBER"
+                      sh 'ssh -o StrictHostKeyChecking=no ubuntu@*** uptime'
+                      sh 'ssh -v ubuntu@***'
+                      sh 'ssh ubuntu@*** sudo docker pull repos.opotel.com/gamescore' + ":$BUILD_NUMBER"
+                      sh 'ssh ubuntu@***  sudo docker rm --force gamescore'
+                      sh 'ssh ubuntu@*** sudo docker run --detach  --name gamescore  --restart=always --env "VIRTUAL_PORT=8080" --env "VIRTUAL_HOST=gamescore.romandulman.com" --env  "LETSENCRYPT_HOST=gamescore.romandulman.com"  repos.opotel.com/gamescore'+ ":$BUILD_NUMBER"
 
                   }
               }
@@ -87,6 +87,3 @@ pipeline {
   }
 }
 
-/* sh 'ssh ubuntu@3.122.220.39 sudo docker rm --force roman-dulmans-portfolio' remove prev image
-sh 'ssh ubuntu@3.122.220.39 sudo docker run --detach  --name roman-dulmans-portfolio  --env "VIRTUAL_HOST=romandulman.com"  --env  "VIRTUAL_PORT=8080"  romandulman/roman-dulmans-portfolio'+ ":$BUILD_NUMBER"
-*/
